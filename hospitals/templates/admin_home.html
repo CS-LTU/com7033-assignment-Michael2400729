@@ -1,0 +1,86 @@
+{% extends 'admin_nav.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    .market-update-block {
+      padding: 2em;
+      margin: 1em 0;
+      color: #fff;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+    .market-update-block.clr-block-1 { background: #5BC995; }
+    .market-update-block.clr-block-2 { background: #795548; }
+    .market-update-block.clr-block-3 { background: #009688; }
+    .market-update-block:hover { background: #3C3C3C; }
+    .market-update-right i {
+      font-size: 3em;
+      background: #fff;
+      color: #337AB7;
+      width: 80px;
+      height: 80px;
+      line-height: 80px;
+      text-align: center;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <!-- Total Doctors -->
+      <div class="col-md-4 col-sm-6">
+        <div class="market-update-block clr-block-1">
+          <div class="col-md-8">
+            <h3>{% if dc %}{{ dc }}{% else %}0{% endif %}</h3>
+            <h4><a href="{% url 'view_doctor' %}" style="color: white;">Total Doctors</a></h4>
+          </div>
+          <div class="col-md-4">
+            <i class="fa fa-user-md"></i>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <!-- Total Patients -->
+      <div class="col-md-4 col-sm-6">
+        <div class="market-update-block clr-block-2">
+          <div class="col-md-8">
+            <h3>{% if pc %}{{ pc }}{% else %}0{% endif %}</h3>
+            <h4><a href="{% url 'view_patient' %}" style="color: white;">Total Patients</a></h4>
+          </div>
+          <div class="col-md-4">
+            <i class="fa fa-user-o"></i>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <!-- Total Appointments -->
+      <div class="col-md-4 col-sm-6">
+        <div class="market-update-block clr-block-3">
+          <div class="col-md-8">
+            <h3>{% if ac %}{{ ac }}{% else %}0{% endif %}</h3>
+            <h4><a href="{% url 'view_appointment' %}" style="color: white;">Total Appointments</a></h4>
+          </div>
+          <div class="col-md-4">
+            <i class="fa fa-calendar"></i>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+{% endblock content %}
