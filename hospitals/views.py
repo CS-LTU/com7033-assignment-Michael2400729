@@ -133,12 +133,12 @@ def view_patient(request):
     d = {'pat':pat}
     return render(request,'view_patient.html', d)
 
-def Delete_Patient(request,pid):
+def Delete_Patient(request, pid):
     if not request.user.is_staff:
         return redirect('login')
     patient = Patient.objects.get(id=pid)
     patient.delete()
-    return redirect('view_patient.html')
+    return redirect('view_patient')  # Redirect to the correct view name
 
 def edit_patient(request,pid):
     error = ""
