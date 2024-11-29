@@ -198,7 +198,7 @@ def Delete_Appointment(request,pid):
         return redirect('login')
     appointment1 = Appointment.objects.get(id=pid)
     appointment1.delete()
-    return redirect('view_appointment.html')
+    return redirect('view_appointment')
 
 def unread_queries(request):
     if not request.user.is_authenticated:
